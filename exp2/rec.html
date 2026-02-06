@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campus Navigation</title>
+
+    <!-- RESPONSIVE ADDITION -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style>
+    body {
+        background: #061A59;
+    }
+
+    .center {
+        text-align: center;
+        color: white;
+    }
+
+    .rec a {
+        display: block;
+        margin: 10px;
+        font-size: 22px;
+        color: lightgreen;
+        text-decoration: none;
+    }
+
+    /* RESPONSIVE ADDITION */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* RESPONSIVE ADDITION FOR MOBILE */
+    @media (max-width: 600px) {
+        .rec a {
+            font-size: 18px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<body>
+
+    <h1 class="center" style="color: yellow;">REC Campus Tour</h1>
+
+    <div class="center">
+        <img src="recimg.PNG" alt="RECimg" width="400px">
+    </div>
+
+    <center>
+        <div class="rec">
+            <p style="color:blanchedalmond">Click here 👇</p>
+
+            <a href="blocks.html">🏢 Building Blocks</a>
+            <a href="hostel.html">🏠 Hostel & Mess</a>
+            <a href="playground.html">⚽ Playground</a>
+            <a href="library.html">📚 College Library</a>
+            <a href="transport.html">🚌 Transportation Map</a>
+        </div>
+
+        <h2 style="color: aqua;">campus satelite mode view-👇</h2>
+
+        <img src="recsat.PNG" alt="RECimg" width="960px" height="500px">
+    </center>
+
+</body>
+</html>
