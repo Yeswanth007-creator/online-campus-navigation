@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login & Signup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        background: #061A59;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .box {
+        background: white;
+        padding: 25px;
+        width: 320px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    h2 {
+        color: #061A59;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 8px 0;
+    }
+
+    button {
+        width: 95%;
+        padding: 10px;
+        background: #061A59;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #0a2aa3;
+    }
+
+    p {
+        margin-top: 10px;
+        color: red;
+    }
+
+    a {
+        color: blue;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <!-- LOGIN -->
+    <div id="loginBox">
+        <h2>Login</h2>
+        <input type="text" id="loginUser" placeholder="Username">
+        <input type="password" id="loginPass" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="loginMsg"></p>
+        <p>New user? <a onclick="showSignup()">Signup</a></p>
+    </div>
+
+    <!-- SIGNUP -->
+    <div id="signupBox" style="display:none;">
+        <h2>Signup</h2>
+        <input type="text" id="signupUser" placeholder="Username">
+        <input type="password" id="signupPass" placeholder="Password">
+        <button onclick="signup()">Signup</button>
+        <p id="signupMsg"></p>
+        <p>Already have account? <a onclick="showLogin()">Login</a></p>
+    </div>
+
+</div>
+
+<script>
+    function showSignup() {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("signupBox").style.display = "block";
+    }
+
+    function showLogin() {
+        document.getElementById("signupBox").style.display = "none";
+        document.getElementById("loginBox").style.display = "block";
+    }
+
+    function signup() {
+        let user = document.getElementById("signupUser").value;
+        let pass = document.getElementById("signupPass").value;
+
+        if (user === "" || pass === "") {
+            document.getElementById("signupMsg").innerText = "Fill all fields";
+            return;
+        }
+
+        localStorage.setItem("username", user);
+        localStorage.setItem("password", pass);
+
+        alert("Signup successful! Please login.");
+        showLogin();
+    }
+
+    function login() {
+        let user = document.getElementById("loginUser").value;
+        let pass = document.getElementById("loginPass").value;
+
+        let storedUser = localStorage.getItem("username");
+        let storedPass = localStorage.getItem("password");
+
+        if (user === storedUser && pass === storedPass) {
+            alert("Login successful!");
+            window.location.href = "rec.html"; // ✅ redirect
+        } else {
+            document.getElementById("loginMsg").innerText =
+                "Invalid username or password";
+        }
+    }
+</script>
+
+</body>
+</html>
